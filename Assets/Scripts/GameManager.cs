@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour {
 	public void UpdateScore () {
 		gameScore++;
 		gameScoreText.text = gameScore + "";
-		SoundManager.Instance.PlayTheAudio("Point");
+		//SoundManager.Instance.PlayTheAudio("Point");
 	}
 
 	public bool GameState () {
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour {
 		//SoundManager.Instance.PlayTheAudio("Swoosh");    //TODO Need to fix error
 		gameScoreText.enabled = false;
 		yield return new WaitForSeconds (1f);
-		SoundManager.Instance.PlayTheAudio("Swoosh");
+		//SoundManager.Instance.PlayTheAudio("Swoosh");
 		yield return new WaitForSeconds (0.5f);
 		// Roll the current score from 0
 		for(int i = 0; i <= gameScore; i++){
