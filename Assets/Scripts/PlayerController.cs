@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour {
 				playerRigid.velocity = Vector2.zero;
 				// Push the player upwards
 				playerRigid.AddForce (Vector2.up * thrust);
-				SoundManager.Instance.PlayTheAudio("Flap");
+				//SoundManager.Instance.PlayTheAudio("Flap");    //TODO Need to fix sound playing problem with error from this line
 			}
 		}
 		if (playerRigid.velocity.y < -1f) {
