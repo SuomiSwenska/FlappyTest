@@ -1,0 +1,7 @@
+- I would use my sound system, it's more comfortable. Also a singleton, but you don't need to refer to the sound file by its name.
+- It is necessary to reduce the use of GetComponent in the code. Instead, cache the data in Awake.
+- The death system is better done through a system of events and subscriptions.
+- It's best not to contain data in player and obstacle prefabs or any other prefabs. 
+It is desirable to separate the entities of data/models, logic and control systems.Ideally, data should be contained in Scriptable files. 
+- Calls to coroutines are best done explicitly and not by coroutine name. Because this makes debugging easier. Needed like this: StartCoroutine(StartGame());
+- Needed to use pattern "Object pool", because Instantiate process and Garbage Collector is very expensive things for perfomance.
