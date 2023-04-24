@@ -165,7 +165,7 @@ TextureImporter:
       213: 21300106
     second: Flappy Bird_7
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -182,9 +182,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -194,8 +197,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -216,10 +219,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -247,6 +255,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1404,9 +1424,63 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Flappy Bird_28: 21300038
+      Flappy Bird_48: 21300078
+      Flappy Bird_38: 21300058
+      Flappy Bird_18: 21300026
+      Flappy Bird_39: 21300060
+      Flappy Bird_43: 21300068
+      Flappy Bird_46: 21300074
+      Flappy Bird_36: 21300054
+      Flappy Bird_3: 21300006
+      Flappy Bird_58: 21300098
+      Flappy Bird_55: 21300092
+      Flappy Bird_23: 21300034
+      Flappy Bird_56: 21300094
+      Flappy Bird_2: 21300004
+      Flappy Bird_54: 21300090
+      Flappy Bird_29: 21300040
+      Flappy Bird_13: 21300018
+      Flappy Bird_32: 21300046
+      Flappy Bird_22: 21300032
+      Flappy Bird_11: 21300014
+      Flappy Bird_8: 21300008
+      Flappy Bird_12: 21300016
+      Flappy Bird_31: 21300044
+      Flappy Bird_41: 21300064
+      Flappy Bird_45: 21300072
+      Flappy Bird_30: 21300042
+      Flappy Bird_25: 21300036
+      Flappy Bird_44: 21300070
+      Flappy Bird_10: 21300012
+      Flappy Bird_21: 21300030
+      Flappy Bird_15: 21300022
+      Flappy Bird_57: 21300096
+      Flappy Bird_4: 21300100
+      Flappy Bird_53: 21300088
+      Flappy Bird_9: 21300010
+      Flappy Bird_47: 21300076
+      Flappy Bird_51: 21300084
+      Flappy Bird_52: 21300086
+      Flappy Bird_49: 21300080
+      Flappy Bird_0: 21300000
+      Flappy Bird_14: 21300020
+      Flappy Bird_37: 21300056
+      Flappy Bird_42: 21300066
+      Flappy Bird_35: 21300052
+      Flappy Bird_40: 21300062
+      Flappy Bird_50: 21300082
+      Flappy Bird_17: 21300024
+      Flappy Bird_7: 21300106
+      Flappy Bird_6: 21300104
+      Flappy Bird_1: 21300002
+      Flappy Bird_33: 21300048
+      Flappy Bird_19: 21300028
+      Flappy Bird_34: 21300050
+      Flappy Bird_5: 21300102
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
