@@ -7,17 +7,19 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField] private float thrust, minTiltSmooth, maxTiltSmooth, hoverDistance, hoverSpeed;
 	[SerializeField] private float gravityScale;
 	[SerializeField] private float maxGravityScale;
+	private float defGravityScale;
 	private bool start;
 	private float timer, tiltSmooth, y;
 	private Rigidbody2D playerRigid;
 	private Quaternion downRotation, upRotation;
-	private SpriteRenderer _spriteRenderer;
-	private Animator _animator;
+	private SpriteRenderer spriteRenderer;
+	private Animator animator;
 
     private void Awake()
     {
-		_spriteRenderer = GetComponent<SpriteRenderer>();
-		_animator = GetComponent<Animator>();
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		animator = GetComponent<Animator>();
+		defGravityScale = gravityScale;
 	}
 
     void Start () {
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour {
 					// This code checks the first tap. After first tap the tutorial image is removed and game starts
 					start = true;
 					GameManager.Instance.GetReady ();
-					_animator.speed = 2;
+					animator.speed = 2;
 				}
 				StopAllCoroutines();
 				tiltSmooth = minTiltSmooth;
@@ -61,17 +63,11 @@ public class PlayerController : MonoBehaviour {
 				//SoundManager.Instance.PlayTheAudio("Flap");    //TODO Need to fix sound playing problem with error from this line
 			}
 		}
-
-		//if (playerRigid.velocity.y < -1f) {
-		//	// Increase gravity so that downward motion is faster than upward motion
-		//	tiltSmooth = maxTiltSmooth;
-		//	playerRigid.gravityScale = 2f;
-		//}
 	}
 
 	private IEnumerator SimulateGravity()
 	{
-		gravityScale = 0.001f;
+		gravityScale = defGravityScale;
 		yield return new WaitForSeconds(0.1f);
         while (true)
         {
@@ -106,8 +102,8 @@ public class PlayerController : MonoBehaviour {
 		GameManager.Instance.EndGame ();
 		playerRigid.velocity = Vector2.zero;
 		// Stop the flapping animation
-		_animator.enabled = false;
-		_spriteRenderer.material.SetFloat("_EffectAmount", 1f);
+		animator.enabled = false;
+		spriteRenderer.material.SetFloat("_EffectAmount", 1f);
 	}
 
 }
