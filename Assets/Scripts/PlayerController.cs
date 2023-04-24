@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	[SerializeField] private float thrust, minTiltSmooth, maxTiltSmooth, hoverDistance, hoverSpeed;
+	[SerializeField] private float gravityScale;
+	[SerializeField] private float maxGravityScale;
 	private bool start;
 	private float timer, tiltSmooth, y;
 	private Rigidbody2D playerRigid;
@@ -40,27 +42,42 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void LateUpdate () {
-		if (GameManager.Instance.GameState ()) {
-			if (Input.GetMouseButtonDown (0)) {
-				if(!start){
+		if (GameManager.Instance.GameState ()) 
+		{
+			if (Input.GetMouseButtonDown (0)) 
+			{
+				if(!start)
+				{
 					// This code checks the first tap. After first tap the tutorial image is removed and game starts
 					start = true;
 					GameManager.Instance.GetReady ();
 					_animator.speed = 2;
 				}
-				playerRigid.gravityScale = 1f;
+				StopAllCoroutines();
 				tiltSmooth = minTiltSmooth;
 				transform.rotation = upRotation;
-				playerRigid.velocity = Vector2.zero;
-				// Push the player upwards
-				playerRigid.AddForce (Vector2.up * thrust);
+				playerRigid.MovePosition(playerRigid.position + (Vector2.up * thrust));
+				StartCoroutine(SimulateGravity());
 				//SoundManager.Instance.PlayTheAudio("Flap");    //TODO Need to fix sound playing problem with error from this line
 			}
 		}
-		if (playerRigid.velocity.y < -1f) {
-			// Increase gravity so that downward motion is faster than upward motion
-			tiltSmooth = maxTiltSmooth;
-			playerRigid.gravityScale = 2f;
+
+		//if (playerRigid.velocity.y < -1f) {
+		//	// Increase gravity so that downward motion is faster than upward motion
+		//	tiltSmooth = maxTiltSmooth;
+		//	playerRigid.gravityScale = 2f;
+		//}
+	}
+
+	private IEnumerator SimulateGravity()
+	{
+		gravityScale = 0.001f;
+		yield return new WaitForSeconds(0.1f);
+        while (true)
+        {
+			playerRigid.MovePosition(playerRigid.position + (Vector2.down * gravityScale));
+			gravityScale = Mathf.Lerp(gravityScale, maxGravityScale, Time.deltaTime);
+			yield return null;
 		}
 	}
 
