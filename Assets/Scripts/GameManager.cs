@@ -92,14 +92,14 @@ public class GameManager : MonoBehaviour {
 			endHighScore.text = PlayerPrefs.GetInt("Score") + ""; 
 			// Start the gameover animations
 			GameManager.Instance.StartCoroutine("GameOver");
-			SoundManager.Instance.PlayTheAudio("Hit");
+			//SoundManager.Instance.PlayTheAudio("Hit");    //TODO Need to fix error here
 		}
 	}
 
 	IEnumerator GameOver () {
 		endAnimations.SetTrigger("End");
 		yield return new WaitForSeconds (0.5f);
-		SoundManager.Instance.PlayTheAudio("Swoosh");
+		//SoundManager.Instance.PlayTheAudio("Swoosh");    //TODO Need to fix error
 		gameScoreText.enabled = false;
 		yield return new WaitForSeconds (1f);
 		SoundManager.Instance.PlayTheAudio("Swoosh");

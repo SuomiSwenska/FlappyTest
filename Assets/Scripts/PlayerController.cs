@@ -9,8 +9,16 @@ public class PlayerController : MonoBehaviour {
 	private float timer, tiltSmooth, y;
 	private Rigidbody2D playerRigid;
 	private Quaternion downRotation, upRotation;
+	private SpriteRenderer _spriteRenderer;
+	private Animator _animator;
 
-	void Start () {
+    private void Awake()
+    {
+		_spriteRenderer = GetComponent<SpriteRenderer>();
+		_animator = GetComponent<Animator>();
+	}
+
+    void Start () {
 		tiltSmooth = maxTiltSmooth;
 		playerRigid = GetComponent<Rigidbody2D> ();
 		downRotation = Quaternion.Euler (0, 0, -90);
@@ -38,7 +46,7 @@ public class PlayerController : MonoBehaviour {
 					// This code checks the first tap. After first tap the tutorial image is removed and game starts
 					start = true;
 					GameManager.Instance.GetReady ();
-					GetComponent<Animator>().speed = 2;
+					_animator.speed = 2;
 				}
 				playerRigid.gravityScale = 1f;
 				tiltSmooth = minTiltSmooth;
@@ -81,7 +89,8 @@ public class PlayerController : MonoBehaviour {
 		GameManager.Instance.EndGame ();
 		playerRigid.velocity = Vector2.zero;
 		// Stop the flapping animation
-		GetComponent<Animator> ().enabled = false;
+		_animator.enabled = false;
+		_spriteRenderer.material.SetFloat("_EffectAmount", 1f);
 	}
 
 }
